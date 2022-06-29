@@ -25,7 +25,7 @@ int str_compare(char* param_1, char* param_2) {
     }
     return similar;
 }
-
+// get inputs as flags
 void input_ct(int argc, char *argv[], int *code, int *t) {
     char *c_flag = "-c"; 
     char *t_flag = "-t";
@@ -36,11 +36,11 @@ void input_ct(int argc, char *argv[], int *code, int *t) {
     for (int i=0; i<argc; i++) {
         if (str_compare(argv[i], c_flag) && c_active==0 && c_found==0) {
             c_active = 1;
-            printf("Tema_c");
+            //printf("Tema_c");
         }
         else if (str_compare(argv[i], t_flag) && t_active==0 && t_found==0) {
             t_active = 1;
-            printf("Tema_t");
+            //printf("Tema_t");
         }
         else if (c_active==1 && c_found==0) {
             c_found = 1;
@@ -50,7 +50,7 @@ void input_ct(int argc, char *argv[], int *code, int *t) {
             t_found = 1;
             t_str = argv[i];
         }
-        printf("%d: %s\n", i, argv[i]);
+        //printf("%d: %s\n", i, argv[i]);
     }
     *code = atoi(code_str);
     *t = atoi(t_str);
