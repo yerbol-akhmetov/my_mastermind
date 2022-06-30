@@ -19,6 +19,9 @@ int process_round(char* orig_code, int round) {
     if (is_valid_code(user_code)==0) {
         res_code = check_code(orig_code, user_code);
     }
+    else {
+        printf("Wrong data\n");
+    }
     free(user_code);
     return res_code;
 }
@@ -41,11 +44,14 @@ void play(t_game_data* game_data) {
 }
 
 int main(int argc, char** argv) {
-    intro();
     t_game_data* game_data = init_struct();
     parse_params(game_data, argc, argv);
-    printf("secret code: %s\n",game_data->secret_code);
-    printf("attempts: %d\n", game_data->attempts);
-    play(game_data);
+    if (not_similar(game_data->secret_code, "0000") && (game_data->attempts!=-1)) {
+        intro();
+        printf("secret code: %s\n",game_data->secret_code);
+        printf("attempts: %d\n", game_data->attempts);
+        play(game_data);
+    }
+    
     return 0;
 }
