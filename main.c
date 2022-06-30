@@ -31,7 +31,12 @@ void play(t_game_data* game_data) {
         current_attempts += 1;
         if (res_code == 0) {
             printf("Congratz! You did it!\n");
+            break;
         }
+        if (current_attempts==game_data->attempts) {
+            printf("You have lost!\n");
+        }
+        
     }
 }
 

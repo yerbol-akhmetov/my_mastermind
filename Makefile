@@ -1,7 +1,7 @@
 CC = gcc
 NAME = my_mastermind
 SRC = $(wildcard *.c)
-SANITIZE = -g -fsanitize=address
+SANITIZE = -g
 CFLAGS = -Wall -Wextra -Werror
 OBJECTS = $(SRC:.c=.o)
 all: $(NAME)

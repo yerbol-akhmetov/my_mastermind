@@ -6,5 +6,6 @@ t_game_data* init_struct() {
     d->secret_code[4] = '\0';
     my_strcpy(d->secret_code, "1234");
     d->attempts = 10;
+    fflush(stdout);
     return d;
 }

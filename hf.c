@@ -26,11 +26,11 @@ int my_atoi(char* param_1) {
 
 int is_valid_code(char* code) {
     if (my_strlen(code)!=4) {
-        printf("Error: length should be 4!");
+        printf("Error: length should be 4!\n");
         return 1;
     }
     if (is_number(code)==1) {
-        printf("Error: digits must be entered!");
+        printf("Error: digits must be between 0 and 7!\n");
         return 1;
     }
     return 0;
@@ -113,7 +113,7 @@ t_game_data* parse_params(t_game_data* game_data, int argc, char** argv) {
                 }
             }
             else {
-                printf("Unknown option!");
+                printf("Unknown option!\n");
             }
         }
         i += 1;
