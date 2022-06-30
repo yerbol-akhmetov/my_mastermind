@@ -45,6 +45,57 @@ int is_number(char* str) {
     return 0;
 }
 
+char* input() {
+    char* buffer = (char*) malloc(101);
+    buffer[100] = '\0';
+    read(0, buffer, 100);
+    fflush(stdout);
+    return buffer;
+}
+
+char* cut(char* str) {
+    char* new_str = (char*)malloc(5);
+    new_str[4]='\0';
+    for (int i=0; i<4; i++) {
+        new_str[i] = str[i];
+    }
+    return new_str;
+}
+
+int check_code(char* orig_code, char* user_code) {
+    int wellplaced = count_wellplaced(orig_code, user_code);
+    int missplaced = count_missplaced(orig_code, user_code);
+    printf("Wellplaced: %d\n", wellplaced);
+    printf("Missplaced: %d\n", missplaced);
+
+    if (wellplaced==4) {
+        return 0;
+    }
+    else {
+        return 1;
+    }
+}
+int count_wellplaced(char* orig_code, char* user_code) {
+    int count = 0;
+    for (int i=0; i < 4; i++) {
+        if (orig_code[i]==user_code[i]) {
+            count += 1;
+        }
+    }
+    return count;
+}
+int count_missplaced(char* orig_code, char* user_code) {
+    int count = 0;
+    for (int i=0; i<4; i++) {
+        for (int j=0; j<4; j++) {
+            if (i!=j && orig_code[i]==user_code[j]) {
+                count += 1;
+            }
+        }
+    }
+    return count;
+}
+
 t_game_data* parse_params(t_game_data* game_data, int argc, char** argv) {
     int i = 0;
     while (i+1 < argc) {
@@ -57,7 +108,7 @@ t_game_data* parse_params(t_game_data* game_data, int argc, char** argv) {
                 my_strcpy(game_data->secret_code, code);
             }
             else if (argv[i][1]=='t') {
-                if (is_number(argv[i+1])) {
+                if (is_number(argv[i+1])==0) {
                     game_data->attempts = my_atoi(argv[i+1]);
                 }
             }
