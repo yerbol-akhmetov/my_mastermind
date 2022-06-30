@@ -13,3 +13,4 @@ int my_atoi(char* param_1);
 int is_valid_code(char* code);
 int is_number(char* str);
 t_game_data* init_struct();
+t_game_data* parse_params(t_game_data* game_data, int argc, char** argv);
