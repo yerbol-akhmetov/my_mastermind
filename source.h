@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <time.h>
 
 typedef struct s_game_data {
     char* secret_code;
@@ -19,6 +20,7 @@ int check_code(char* orig_code, char* user_code);
 int count_wellplaced(char* orig_code, char* user_code);
 int count_missplaced(char* orig_code, char* user_code);
 int not_unique(char* str);
-
+char* rand_code();
 t_game_data* init_struct();
 t_game_data* parse_params(t_game_data* game_data, int argc, char** argv);
+

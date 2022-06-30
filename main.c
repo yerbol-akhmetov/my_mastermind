@@ -52,6 +52,6 @@ int main(int argc, char** argv) {
         printf("attempts: %d\n", game_data->attempts);
         play(game_data);
     }
-    
+    //printf("%s\n", argv[4]);
     return 0;
 }

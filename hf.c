@@ -141,7 +141,43 @@ int not_unique(char* str) {
     return not_uniq;
 }
 
+char* rand_code() {
+    char* code = (char*)malloc(5);
+    code[4] = '\0';
+    srand(time(NULL));
+    int num = rand() % 8;
+    code[0] = num + '0';
+    // digit 2
+    while (1) {
+        num = rand() % 8;
+        code[1] = num + '0';
+        if (code[1]!=code[0]) {
+            break;
+        }
+    }
+    //digit 3
+    while (1) {
+        num = rand() % 8;
+        code[2] = num + '0';
+        if (code[2]!=code[0] && code[2]!=code[1]) {
+            break;
+        }
+    }
+    //digit 4
+    while (1) {
+        num = rand() % 8;
+        code[3] = num + '0';
+        if (code[3]!=code[0] && code[3]!=code[1] && code[3]!=code[2]) {
+            break;
+        }
+    }
+    return code;
+}
 
+//int is_empty(char* code) {
+//    int len=0;
+
+//}
 
 t_game_data* parse_params(t_game_data* game_data, int argc, char** argv) {
     int i = 0;
