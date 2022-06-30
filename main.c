@@ -48,8 +48,8 @@ int main(int argc, char** argv) {
     parse_params(game_data, argc, argv);
     if (not_similar(game_data->secret_code, "0000") && (game_data->attempts!=-1)) {
         intro();
-        printf("secret code: %s\n",game_data->secret_code);
-        printf("attempts: %d\n", game_data->attempts);
+        //printf("secret code: %s\n",game_data->secret_code);
+        //printf("attempts: %d\n", game_data->attempts);
         play(game_data);
     }
     //printf("%s\n", argv[4]);
